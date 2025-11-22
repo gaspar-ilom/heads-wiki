@@ -4,7 +4,7 @@ name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["problem-resolution"]
+    branches: ["master", "problem-resolution"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -31,7 +31,7 @@ jobs:
       - name: Fetch sources from main repo
         working-directory: ./Development
         run: |
-          curl -H 'Accept: application/vnd.github.v3.raw' -O -L https://github.com/linuxboot/heads/BOARDS_AND_TESTERS.md
+          curl -H 'Accept: application/vnd.github+raw' -O -L https://raw.githubusercontent.com/gaspar-ilom/heads/heads-wiki-actions/BOARDS_AND_TESTERS.md
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
