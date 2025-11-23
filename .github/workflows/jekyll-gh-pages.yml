@@ -31,6 +31,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.client_payload.ref }}
       # Fetch markdown files maintained in the main repo for rendering as part of the Wiki
       - name: Fetch sources from main repo
         working-directory: ./Development
